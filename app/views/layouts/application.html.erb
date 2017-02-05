@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RealPrice</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title>Hey</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag *webpack_asset_paths("application") %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class='container'>
+  <% if notice.present? %>
+    <aside class="alert alert-info"> <%= notice %></aside>
+  <% end %>
 
-<%= yield %>
+  <% if alert.present? %>
+    <aside class="alert alert-danger"> <%= alert %> </aside>
+  <% end %>
+
+  <% if current_user %>
+    <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+  <% else %>
+    <%= link_to "Log In", new_user_session_path %>
+  <% end %>
+
+  <%= yield %>
 
 </body>
 </html>

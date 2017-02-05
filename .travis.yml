@@ -1,0 +1,8 @@
+language:
+  ruby
+rvm:
+  2.3.0
+
+before_script:
+  - "psql -c 'create database real_price_test;' -U postgres"
+  - "rake db:migrate"

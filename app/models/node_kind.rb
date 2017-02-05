@@ -1,2 +1,0 @@
-class NodeKind < ApplicationRecord
-end
