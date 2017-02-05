@@ -1,0 +1,2 @@
+class TravelNode < ApplicationRecord
+end

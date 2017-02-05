@@ -1,0 +1,2 @@
+class NodeConnection < ApplicationRecord
+end
